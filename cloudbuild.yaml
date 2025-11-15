@@ -7,7 +7,7 @@ steps:
       - "gcr.io/$PROJECT_ID/member-qa-service:$COMMIT_SHA"
       - "."
 
-  # 2) Push image to Container Registry / Artifact Registry
+  # 2) Push image
   - name: gcr.io/cloud-builders/docker
     args:
       - "push"
@@ -32,3 +32,6 @@ steps:
 
 images:
   - "gcr.io/$PROJECT_ID/member-qa-service:$COMMIT_SHA"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
