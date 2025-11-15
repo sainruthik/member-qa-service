@@ -4,9 +4,9 @@ A production-ready FastAPI service that answers natural-language questions about
 
 ## Live Deployment
 
-**Base URL:** `https://member-qa-service-pfjfsbxhya-uc.a.run.app`
+**Base URL:** `https://member-qa-service-pjftsbxyha-uc.a.run.app`
 
-**API Documentation:** `https://member-qa-service-pfjfsbxhya-uc.a.run.app/docs`
+**API Documentation:** `https://member-qa-service-pjftsbxyha-uc.a.run.app/docs`
 
 ## Overview
 
@@ -210,37 +210,3 @@ During dataset exploration, the following patterns were observed:
 - **Non-answerable messages:** Generic responses like "Great work!" receive low relevance scores
 - **No explicit profiles:** All inference is text-driven from message content
 - **Context-dependent references:** "The usual place" has low keyword overlap and is naturally deprioritized
-
-### Caching Strategy
-
-The 60-second TTL cache balances:
-- **Freshness:** Messages refresh frequently enough for most use cases
-- **Performance:** Reduces upstream API load by ~98% under normal traffic
-- **Simplicity:** In-memory cache avoids external dependencies (Redis, Memcached)
-
-For production at scale, consider:
-- Distributed caching (Redis) for multi-instance deployments
-- Configurable TTL via environment variables
-- Cache invalidation webhooks from upstream API
-
-## Future Enhancements
-
-Potential improvements for production scale:
-
-- [ ] Add Redis for distributed caching across Cloud Run instances
-- [ ] Implement request rate limiting to prevent abuse
-- [ ] Add structured logging (JSON format) for Cloud Logging integration
-- [ ] Support multi-member queries ("What do Layla and Vikram prefer?")
-- [ ] Implement fuzzy string matching (Levenshtein distance) for misspelled names
-- [ ] Add telemetry/metrics (Prometheus, OpenTelemetry)
-- [ ] Implement webhook for cache invalidation on upstream data changes
-- [ ] Add confidence scores to answer responses
-- [ ] Support follow-up questions with conversation context
-
-## License
-
-This project is proprietary. All rights reserved.
-
-## Contact
-
-For questions or issues, contact the development team.
