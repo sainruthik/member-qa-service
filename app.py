@@ -6,7 +6,8 @@ import re
 from collections import Counter
 import time
 
-app = FastAPI(title="Member QA Service")
+app = FastAPI(title="Member QA Service (auto-deploy test)")
+
 
 # Upstream messages API
 MESSAGES_API_URL = "https://november7-730026606190.europe-west1.run.app/messages"
